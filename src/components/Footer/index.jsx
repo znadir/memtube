@@ -12,7 +12,7 @@ const Footer = styled.footer`
 `
 
 const Icon = styled.img`
-  vertical-align: bottom;
+  vertical-align: top;
 `
 
 const Credits = styled.div`

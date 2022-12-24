@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../utils/style/colors.js'
-import logoLightTheme from '../../assets/svg/logo-light-theme.png'
+import logoLightTheme from '../../assets/img/logo-light-theme.png'
 
 const Nav = styled.nav`
   background-color: ${colors.primaryLight};
