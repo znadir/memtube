@@ -12,7 +12,7 @@ import GlobalStyle from './utils/style/GlobalStyle.jsx'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/memtube',
     element: <Root />,
     errorElement: <Error />,
     children: [
