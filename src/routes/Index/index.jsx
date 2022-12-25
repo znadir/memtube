@@ -4,6 +4,7 @@ import { colors } from '../../utils/style/colors'
 import newIcon from '../../assets/svg/new-icon.svg'
 import { useFetch } from '../../utils/hooks'
 import { Loader } from '../../components/Loader'
+import errorMeme from '../../assets/img/error-meme.jpg'
 
 const Centered = styled.div`
   text-align: center;
@@ -38,6 +39,19 @@ export default function Index() {
     <Centered>
       {isLoading ? (
         <Loader />
+      ) : error ? (
+        <>
+          <PostTitle>Oops! Something went wrong</PostTitle>
+          <PostAbout>by undefined </PostAbout>
+          <PostImg src={errorMeme} alt="meme from reddit" />
+          <Button
+            iconSvg={newIcon}
+            text={' Try again'}
+            bgColor={colors.secondary}
+            textColor={colors.primary}
+            clickFunc={reload}
+          />
+        </>
       ) : (
         <>
           <PostTitle>{data && data.title}</PostTitle>
