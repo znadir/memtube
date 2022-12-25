@@ -1,7 +1,10 @@
+import { useContext } from 'react'
 import styled from 'styled-components'
 import { colors } from '../../utils/style/colors'
 import githubIcon from '../../assets/svg/github-icon.svg'
 import moonIcon from '../../assets/svg/moon-icon.svg'
+import sunIcon from '../../assets/svg/sun-icon.svg'
+import { ThemeContext } from '../../utils/context/ThemeProvider'
 
 const Footer = styled.footer`
   display: flex;
@@ -20,7 +23,8 @@ const Credits = styled.div`
 `
 
 const ThemeSwitch = styled.button`
-  background-color: ${colors.primary};
+  background-color: ${({ isDarkMode }) =>
+    isDarkMode ? colors.tertiary : colors.primary};
   height: 55px;
   width: 55px;
   border-radius: 50%;
@@ -35,6 +39,8 @@ const Author = styled.a`
 `
 
 export default function Header() {
+  const { toggleTheme, isDarkMode } = useContext(ThemeContext)
+
   return (
     <>
       <Footer>
@@ -48,8 +54,8 @@ export default function Header() {
             nadirzebiri
           </Author>
         </Credits>
-        <ThemeSwitch>
-          <Icon alt="switch theme" src={moonIcon} />
+        <ThemeSwitch onClick={toggleTheme} isDarkMode={isDarkMode}>
+          <Icon alt="switch theme" src={isDarkMode ? sunIcon : moonIcon} />
         </ThemeSwitch>
       </Footer>
     </>

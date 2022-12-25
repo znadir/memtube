@@ -1,8 +1,16 @@
 import { createGlobalStyle } from 'styled-components'
 import { colors } from './colors.js'
 import { breakpoints } from './breakpoints.js'
+import { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeProvider'
 
-export const GlobalStyle = createGlobalStyle`
+export default function GlobalStyle() {
+  const { isDarkMode } = useContext(ThemeContext)
+
+  return <StyleGlobalStyle isDarkMode={isDarkMode}></StyleGlobalStyle>
+}
+
+const StyleGlobalStyle = createGlobalStyle`
   :root {
     font-size: 62.5%; /* around 10px */
   }
@@ -17,8 +25,10 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 500;
     font-size: 1.6rem;
     line-height: 1.5;
-    color: ${colors.primaryDarkest};
-    background-color: ${colors.primary};
+    color: ${({ isDarkMode }) =>
+      isDarkMode ? colors.primary : colors.primaryDarkest};
+    background-color: ${({ isDarkMode }) =>
+      isDarkMode ? colors.primaryDark : colors.primary};
   }
 
   button {
@@ -27,11 +37,13 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: ${colors.primaryDarkest};
+    color: ${({ isDarkMode }) =>
+      isDarkMode ? colors.primary : colors.primaryDarkest};
   }
 
   a:hover {
-    color: ${colors.primaryLighter};
+    color: ${({ isDarkMode }) =>
+      isDarkMode ? colors.primaryLight : colors.primaryLighter};
   }
 
   h1 {
