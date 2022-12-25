@@ -4,6 +4,11 @@ export function useFetch(url) {
   const [data, setData] = useState()
   const [isLoading, setIsLoading] = useState()
   const [error, setError] = useState(0)
+  const [loads, setLoads] = useState(1) // handles reload()
+
+  function reload() {
+    setLoads(loads + 1)
+  }
 
   useEffect(() => {
     if (!url) return
@@ -23,6 +28,7 @@ export function useFetch(url) {
     }
 
     fetchData()
-  }, [url])
-  return { data, isLoading, error }
+  }, [url, loads])
+
+  return { data, isLoading, error, reload }
 }

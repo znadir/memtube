@@ -24,11 +24,15 @@ const PostImg = styled.img`
 `
 
 export default function Index() {
-  const { data, isLoading, error } = useFetch('https://meme-api.com/gimme')
+  const { data, isLoading, error, reload } = useFetch(
+    'https://meme-api.com/gimme'
+  )
   const authorUserPage =
     data && 'https://www.reddit.com/user/' + data.author + '/'
   const subredditPage =
     data && 'https://www.reddit.com/r/' + data.subreddit + '/'
+
+  document.title = data ? 'Memtubing ' + data.title : document.title // set page title
 
   return (
     <Centered>
@@ -50,9 +54,10 @@ export default function Index() {
           <PostImg src={data && data.url} alt="meme from reddit" />
           <Button
             iconSvg={newIcon}
-            text={' New icon'}
+            text={' New meme'}
             bgColor={colors.secondary}
             textColor={colors.primary}
+            clickFunc={reload}
           />
         </>
       )}

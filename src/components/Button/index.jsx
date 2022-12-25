@@ -31,6 +31,7 @@ export default function Button({
   textColor,
   iconSvg,
   navigateTo,
+  clickFunc,
 }) {
   return navigateTo ? (
     <LinkButton
@@ -47,6 +48,7 @@ export default function Button({
       textColor={textColor}
       iconSvg={iconSvg}
       navigateTo={navigateTo}
+      onClick={clickFunc}
     >
       {iconSvg && <img src={iconSvg} alt="" />} {text}
     </ButtonWrapper>
@@ -59,6 +61,7 @@ Button.propTypes = {
   textColor: PropTypes.string.isRequired,
   iconSvg: PropTypes.string,
   navigateTo: PropTypes.string,
+  clickFunc: PropTypes.func,
 }
 
 Button.defaultProps = {
