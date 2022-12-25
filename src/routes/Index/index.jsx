@@ -1,8 +1,9 @@
 import styled from 'styled-components'
-import loremMemsus from '../../assets/img/lorem-memsus.jpg'
 import Button from '../../components/Button'
 import { colors } from '../../utils/style/colors'
 import newIcon from '../../assets/svg/new-icon.svg'
+import { useFetch } from '../../utils/hooks'
+import { Loader } from '../../components/Loader'
 
 const Centered = styled.div`
   text-align: center;
@@ -23,30 +24,38 @@ const PostImg = styled.img`
 `
 
 export default function Index() {
+  const { data, isLoading, error } = useFetch('https://meme-api.com/gimme')
+  const authorUserPage =
+    data && 'https://www.reddit.com/user/' + data.author + '/'
+  const subredditPage =
+    data && 'https://www.reddit.com/r/' + data.subreddit + '/'
+
   return (
     <Centered>
-      <PostTitle>The sun has two moods</PostTitle>
-      <PostAbout>
-        by{' '}
-        <a href="https://www.reddit.com/user/" target="_blank" rel="noreferrer">
-          Spartan-Yeet
-        </a>{' '}
-        on{' '}
-        <a
-          href="https://www.reddit.com/r/dankmemes/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          r/dankmemes
-        </a>
-      </PostAbout>
-      <PostImg src={loremMemsus} alt="meme from reddit" />
-      <Button
-        iconSvg={newIcon}
-        text={' New icon'}
-        bgColor={colors.secondary}
-        textColor={colors.primary}
-      />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <PostTitle>{data && data.title}</PostTitle>
+          <PostAbout>
+            by{' '}
+            <a href={authorUserPage} target="_blank" rel="noreferrer">
+              {data && data.author}
+            </a>{' '}
+            on{' '}
+            <a href={subredditPage} target="_blank" rel="noreferrer">
+              r/{data && data.subreddit}
+            </a>
+          </PostAbout>
+          <PostImg src={data && data.url} alt="meme from reddit" />
+          <Button
+            iconSvg={newIcon}
+            text={' New icon'}
+            bgColor={colors.secondary}
+            textColor={colors.primary}
+          />
+        </>
+      )}
     </Centered>
   )
 }

@@ -3,8 +3,6 @@ import { colors } from './colors.js'
 import { breakpoints } from './breakpoints.js'
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
-
   :root {
     font-size: 62.5%; /* around 10px */
   }
