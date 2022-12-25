@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
     line-height: 1.5;
     color: ${colors.primaryDarkest};
+    background-color: ${colors.primary};
   }
 
   button {
