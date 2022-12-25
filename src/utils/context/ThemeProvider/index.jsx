@@ -1,10 +1,20 @@
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 
 export const ThemeContext = createContext()
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light')
+  const savedTheme = localStorage.getItem('theme')
+  const getOSTheme = () =>
+    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  const defaultTheme = savedTheme || getOSTheme
+
+  const [theme, setTheme] = useState(defaultTheme)
   const isDarkMode = theme === 'dark'
+
+  /* Save in local storage the theme every render */
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+  })
 
   function toggleTheme() {
     switch (theme) {
@@ -18,6 +28,7 @@ export const ThemeProvider = ({ children }) => {
         throw new Error('The theme value provided is incorrect')
     }
   }
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, isDarkMode }}>
       {children}
