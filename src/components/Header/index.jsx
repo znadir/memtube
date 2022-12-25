@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import styled from 'styled-components'
 import { colors } from '../../utils/style/colors.js'
 import logoLightTheme from '../../assets/img/logo-light-theme.png'
+import logoDarkTheme from '../../assets/img/logo-dark-theme.png'
 import { ThemeContext } from '../../utils/context/ThemeProvider'
 
 const Nav = styled.nav`
@@ -21,7 +22,10 @@ export default function Header() {
 
   return (
     <Nav isDarkMode={isDarkMode}>
-      <Logo src={logoLightTheme} alt="memtube logo" />
+      <Logo
+        src={isDarkMode ? logoDarkTheme : logoLightTheme}
+        alt="memtube logo"
+      />
     </Nav>
   )
 }
