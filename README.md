@@ -1,6 +1,6 @@
 # Memtube
 
-Memtube is a simple react app to watch endless Reddit memes like Youtube videos! You can try the app here: [https://nadirzebiri.github.io/memtube/](https://znadir.github.io/memtube/)
+Memtube is a simple react app to watch endless Reddit memes like Youtube videos! You can try the app here: [https://znadir.github.io/memtube/](https://znadir.github.io/memtube/)
 
 ![preview](./src/assets/img/preview.png)
 
