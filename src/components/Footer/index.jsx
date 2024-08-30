@@ -47,11 +47,11 @@ export default function Header() {
         <Credits>
           <Icon alt="github" src={githubIcon} /> Made by{' '}
           <Author
-            href="https://github.com/nadirzebiri"
+            href="https://github.com/znadir"
             target="_blank"
             rel="noreferrer"
           >
-            nadirzebiri
+            znadir
           </Author>
         </Credits>
         <ThemeSwitch onClick={toggleTheme} isDarkMode={isDarkMode}>
