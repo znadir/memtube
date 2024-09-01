@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/memtube/static/js/main.cb5ab15a.js",
+    "static/media/error-meme.jpg": "/memtube/static/media/error-meme.e1fa7474dd132208f744.jpg",
+    "static/media/logo-dark-theme.png": "/memtube/static/media/logo-dark-theme.17efd07974ca11d2383b.png",
+    "static/media/logo-light-theme.png": "/memtube/static/media/logo-light-theme.dfecb25ee3c011d4a9d9.png",
+    "static/media/github-icon.svg": "/memtube/static/media/github-icon.b84cc847bdd3cac981ef98636bb1c204.svg",
+    "static/media/sun-icon.svg": "/memtube/static/media/sun-icon.faf24fa853e1ba9adbc111e54f1c89d0.svg",
+    "index.html": "/memtube/index.html",
+    "static/media/new-icon.svg": "/memtube/static/media/new-icon.d3702e3ecad4d2d766054f610903c62b.svg",
+    "static/media/moon-icon.svg": "/memtube/static/media/moon-icon.5b55713fbfe2011869b2859d02718ccb.svg",
+    "main.cb5ab15a.js.map": "/memtube/static/js/main.cb5ab15a.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.cb5ab15a.js"
+  ]
+}
