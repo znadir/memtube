@@ -48,7 +48,7 @@ const StyleGlobalStyle = createGlobalStyle`
 
   h1 {
     font-weight: 500;
-    font-size: 3.2rem;
+    font-size: 2.9rem;
   }
 
   /* typo for PC */
